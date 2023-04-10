@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ColorChoice: View {
+    
+    @State private var selectedColor = Color.white
+    
     var body: some View {
         ZStack{
             VStack{
@@ -26,10 +29,20 @@ struct ColorChoice: View {
                             .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
                         
-                        RoundedRectangle(cornerRadius: 50)
-                            .frame(width: 300, height: 300)
-                            .shadow(radius: 10)
-                            .padding(.top, 50)
+                        ZStack{
+                            
+                            // MyColorPicker()
+                            MyColorPicker(selectedColor: $selectedColor)
+                            
+                            RoundedRectangle(cornerRadius: 50)
+                            
+                                .foregroundColor(selectedColor)
+                                .frame(width: 300, height: 300)
+                            
+                                .shadow(radius: 10)
+                                .padding(.top, 50)
+                            
+                        }
                     }
                     
                     VStack{
