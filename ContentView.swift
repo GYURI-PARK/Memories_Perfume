@@ -4,7 +4,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             
-            BackgroundView()
+            //BackgroundView()
             
             HStack{
                 Spacer()
@@ -19,14 +19,15 @@ struct ContentView: View {
                     Spacer(minLength: 300)
                     
                     Button("Start"){
-                        // 네비게이셬
+                        // colorchoice로 가야됨
                     }
-                        .font(.system(size: 50))
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 50)
-                        .padding(.vertical, 15)
-                        .border(.black, width: 7)
-                        .cornerRadius(15)
+                    .font(.system(size: 30).bold())
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 15)
+                    .background(Color.black)
+                    .cornerRadius(25)
+                    .shadow(radius: 10)
                     
                     Spacer()
                     

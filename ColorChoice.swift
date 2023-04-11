@@ -30,6 +30,7 @@ struct ColorChoice: View {
                             .frame(width: 400, height: 60)
                         
                         ColorPickerView()
+                        
 
                     }
                     
@@ -67,11 +68,13 @@ struct ColorChoice: View {
                 Button("Next"){
                     // ParticleChoice()
                 }
-                .font(.system(size: 50))
-                .foregroundColor(.black)
+                .font(.system(size: 30).bold())
+                .foregroundColor(.white)
                 .padding(.horizontal, 50)
                 .padding(.vertical, 15)
-                .cornerRadius(15)
+                .background(Color.black)
+                .cornerRadius(25)
+                .shadow(radius: 10)
 
 
 //                NavigationView {
@@ -92,14 +95,14 @@ struct ColorChoice: View {
 }
 
 struct ColorPickerView: View {
-    @State private var selectedColor = CGColor(red: 0.65, green: 0.26, blue: 0.33, alpha: 0.8)
+    @State private var selectedColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)
     @State var colorList: [CGFloat] = []
     
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 50)
                 .fill(Color(selectedColor))
-                .overlay(Image(systemName: "paintpalette").offset(x: -20, y: 0)
+                .overlay(Image(systemName: "paintpalette.fill").offset(x: -20, y: 0)
                     .foregroundColor(.white)
                     .font(.largeTitle))
             
@@ -117,10 +120,11 @@ struct ColorPickerView: View {
                         }
                     }
                 }
-            ForEach(colorList, id:\.self){
-                Text("\($0)")
+            VStack{
+                ForEach(colorList, id:\.self){
+                    Text("\($0)")
+                }
             }
-            
         }
     }
 }

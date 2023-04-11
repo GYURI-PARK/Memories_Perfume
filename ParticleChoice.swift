@@ -10,6 +10,8 @@ import SwiftUI
 struct ParticleChoice: View {
     var body: some View {
         ZStack{
+            //BackgroundView()
+            
             VStack{
                 
                 Spacer(minLength: 250)
@@ -72,7 +74,16 @@ struct ParticleChoice: View {
                 }
                 Spacer()
                 
-                Text("dfsdsfd")
+                Button("Next"){
+                    // ParticleChoice()
+                }
+                .font(.system(size: 30).bold())
+                .foregroundColor(.white)
+                .padding(.horizontal, 50)
+                .padding(.vertical, 15)
+                .background(Color.black)
+                .cornerRadius(25)
+                .shadow(radius: 10)
                 
                 Spacer()
                 
