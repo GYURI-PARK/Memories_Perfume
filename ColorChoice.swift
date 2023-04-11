@@ -10,7 +10,7 @@ import SwiftUI
 struct ColorChoice: View {
     
     @State private var selectedColor = Color.white
-    
+        
     var body: some View {
         ZStack{
             VStack{
@@ -29,20 +29,8 @@ struct ColorChoice: View {
                             .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
                         
-                        ZStack{
-                            
-                            // MyColorPicker()
-                            MyColorPicker(selectedColor: $selectedColor)
-                            
-                            RoundedRectangle(cornerRadius: 50)
-                            
-                                .foregroundColor(selectedColor)
-                                .frame(width: 300, height: 300)
-                            
-                                .shadow(radius: 10)
-                                .padding(.top, 50)
-                            
-                        }
+                        ColorPickerView()
+
                     }
                     
                     VStack{
@@ -56,10 +44,7 @@ struct ColorChoice: View {
                             .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
                         
-                        RoundedRectangle(cornerRadius: 50)
-                            .frame(width: 300, height: 300)
-                            .shadow(radius: 10)
-                            .padding(.top, 50)
+                        ColorPickerView()
                         
                     }
                     
@@ -74,10 +59,7 @@ struct ColorChoice: View {
                             .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
                         
-                        RoundedRectangle(cornerRadius: 50)
-                            .frame(width: 300, height: 300)
-                            .shadow(color: Color(0xCECECE), radius: 10)
-                            .padding(.top, 50)
+                        ColorPickerView()
                     }
                 }
                 Spacer()
@@ -105,6 +87,40 @@ struct ColorChoice: View {
                 Spacer()
                 
             }
+        }
+    }
+}
+
+struct ColorPickerView: View {
+    @State private var selectedColor = CGColor(red: 0.65, green: 0.26, blue: 0.33, alpha: 0.8)
+    @State var colorList: [CGFloat] = []
+    
+    var body: some View {
+        ZStack{
+            RoundedRectangle(cornerRadius: 50)
+                .fill(Color(selectedColor))
+                .overlay(Image(systemName: "paintpalette").offset(x: -20, y: 0)
+                    .foregroundColor(.white)
+                    .font(.largeTitle))
+            
+                .shadow(radius: 10)
+                .frame(width: 300, height: 300)
+                .padding(.top, 50)
+            
+            ColorPicker("", selection: $selectedColor)
+                .labelsHidden()
+                .offset(x:30, y: 28)
+                .onChange(of: selectedColor) { newValue in
+                    if ((newValue.components) != nil) {
+                        for i in newValue.components! {
+                            colorList.append(i)
+                        }
+                    }
+                }
+            ForEach(colorList, id:\.self){
+                Text("\($0)")
+            }
+            
         }
     }
 }
