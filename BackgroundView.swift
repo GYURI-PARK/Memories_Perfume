@@ -9,9 +9,6 @@ import SwiftUI
 
 struct BackgroundView: View {
     
-    //@Binding var selectedColor: Color
-    
-    
     
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [Color(0xCECECE), .blue, .red]), startPoint: .bottom, endPoint: .top)
@@ -23,7 +20,6 @@ struct BackgroundView_Previews: PreviewProvider {
     @State static var selectedColor = Color.white
     
     static var previews: some View {
-        //BackgroundView(selectedColor: $selectedColor)
         BackgroundView()
             .previewInterfaceOrientation(.landscapeLeft)
     }
