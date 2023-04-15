@@ -14,9 +14,16 @@ struct ColorChoice: View {
     @State var selectedColor2 = Color.white
     @State var selectedColor3 = Color.white
     @State var orderNum = 0
+    @State private var shouldNavigate = false
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+        NavigationView{
             ZStack{
+                NavigationLink(destination: ParticleChoice(), isActive: $shouldNavigate) {
+                    EmptyView()
+                }
                 VStack{
                     
                     Spacer()
@@ -114,6 +121,14 @@ struct ColorChoice: View {
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
                                     }
+                                    .onChange(of: selectedColor3) { color in
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                        self.presentationMode.wrappedValue.dismiss()
+                                        self.showSheet = false
+                                        self.shouldNavigate = true
+                                    }
                             }
                         }
                     }
@@ -122,7 +137,10 @@ struct ColorChoice: View {
                     
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarHidden(true)
+    }
+    
 }
 
 struct ColorChoice_Previews: PreviewProvider {
