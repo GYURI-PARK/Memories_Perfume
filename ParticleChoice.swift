@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ParticleChoice: View {
-    @State var userID: String = ""
+    @State private var showSheet: Bool = false
+
     
     var body: some View {
             ZStack{
-                //BackgroundView()
-                
                 VStack{
                     
                     Spacer()
                     
-                    Text("Select Mood Color")
+                    Text("Select Mood Imoticon")
                         .font(.system(size: 100))
                         .fontWeight(.black)
                         .padding(.vertical, 25)
@@ -38,13 +37,21 @@ struct ParticleChoice: View {
                                 .frame(width: 400, height: 60)
                             
                             ZStack{
-                                RoundedRectangle(cornerRadius: 50)
+                                Circle()
+                                    .fill(Color.red)
                                     .frame(width: 300, height: 300)
                                     .shadow(color: Color(0xCECECE),radius: 10)
                                     .padding(.top, 50)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.red)
+                                    
                                 
-                                //TextField("Enter your ID", text: $userID)
+                                Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
+                                    .onTapGesture {
+                                        showSheet = true
+                                    }
+                                    .sheet(isPresented: $showSheet) {
+                                        ImgModal()
+                                    }
                             }
                         }
                         
@@ -59,11 +66,22 @@ struct ParticleChoice: View {
                                 .foregroundColor(Color(0xCECECE))
                                 .frame(width: 400, height: 60)
                             
-                            RoundedRectangle(cornerRadius: 50)
-                                .frame(width: 300, height: 300)
-                                .shadow(color: Color(0xCECECE),radius: 10)
-                                .padding(.top, 50)
-                                .foregroundColor(.white)
+                            ZStack{
+                                Circle()
+                                    .fill(.yellow)
+                                    .frame(width: 300, height: 300)
+                                    .shadow(color: Color(0xCECECE),radius: 10)
+                                    .padding(.top, 50)
+                                    .foregroundColor(.white)
+                                
+                                Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
+                                    .onTapGesture {
+                                        showSheet = true
+                                    }
+                                    .sheet(isPresented: $showSheet) {
+                                        ImgModal()
+                                    }
+                            }
                             
                         }
                         
@@ -78,32 +96,30 @@ struct ParticleChoice: View {
                                 .foregroundColor(Color(0xCECECE))
                                 .frame(width: 400, height: 60)
                             
-                            RoundedRectangle(cornerRadius: 50)
-                                .frame(width: 300, height: 300)
-                                .shadow(color: Color(0xCECECE), radius: 10)
-                                .padding(.top, 50)
-                                .foregroundColor(.white)
+                            ZStack{
+                                Circle()
+                                    .fill(.gray)
+                                    .frame(width: 300, height: 300)
+                                    .shadow(color: Color(0xCECECE),radius: 10)
+                                    .padding(.top, 50)
+                                    .foregroundColor(.white)
+                                
+                                Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
+                                    .onTapGesture {
+                                        showSheet = true
+                                    }
+                                    .sheet(isPresented: $showSheet) {
+                                        ImgModal()
+                                    }
+                            }
                         }
                     }
                     Spacer()
-                    
-                    Button("Next"){
-                        // ParticleChoice()
-                    }
-                    .font(.system(size: 30).bold())
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 50)
-                    .padding(.vertical, 15)
-                    .background(Color.black)
-                    .cornerRadius(25)
-                    .shadow(radius: 10)
-                    
                     Spacer()
                     
                 }
             }
         }
-        
     }
 struct ParticleChoice_Previews: PreviewProvider {
     static var previews: some View {
