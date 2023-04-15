@@ -18,7 +18,7 @@ struct ParticleChoice: View {
                     
                     Spacer()
                     
-                    Text("Select Mood Icon")
+                    Text("Select Mood Color")
                         .font(.system(size: 100))
                         .fontWeight(.black)
                         .padding(.vertical, 25)

@@ -9,13 +9,17 @@ import SwiftUI
 
 struct ColorModal: View {
     
-    //@Binding private var showSheet: Bool
+    @Binding var showSheet: Bool
+    @Binding var selectedColor1: Color
+    @Binding var selectedColor2: Color
+    @Binding var selectedColor3: Color
+    @Binding var orderNum: Int
     
     var body: some View {
         
         VStack{
             Spacer()
-            Text("Pick ONE")
+            Text("Choose One Color")
                 .font(.system(size: 100))
                 .fontWeight(.bold)
             
@@ -26,6 +30,15 @@ struct ColorModal: View {
                     HStack(spacing: 40){
                         Button(action: {
                             // button action here
+                            self.showSheet = false
+                            //self.selectedColor = .red
+                            if orderNum == 1 {
+                                selectedColor1 = .red
+                            } else if orderNum == 2 {
+                                selectedColor2 = .red
+                            } else if orderNum == 3 {
+                                selectedColor3 = .red
+                            }
                         }){
                             Circle()
                                 .fill(
@@ -40,6 +53,14 @@ struct ColorModal: View {
                         
                         Button(action: {
                             // button action here
+                            self.showSheet = false
+                            if orderNum == 1 {
+                                selectedColor1 = .yellow
+                            } else if orderNum == 2 {
+                                selectedColor2 = .yellow
+                            } else if orderNum == 3 {
+                                selectedColor3 = .yellow
+                            }
                         }){
                             Circle().fill(
                                 RadialGradient(
@@ -53,6 +74,14 @@ struct ColorModal: View {
                         
                         Button(action: {
                             // button action here
+                            self.showSheet = false
+                            if orderNum == 1 {
+                                selectedColor1 = .green
+                            } else if orderNum == 2 {
+                                selectedColor2 = .green
+                            } else if orderNum == 3 {
+                                selectedColor3 = .green
+                            }
                         }){
                             Circle().fill(
                                 RadialGradient(
@@ -66,6 +95,14 @@ struct ColorModal: View {
                         
                         Button(action: {
                             // button action here
+                            self.showSheet = false
+                            if orderNum == 1 {
+                                selectedColor1 = .blue
+                            } else if orderNum == 2 {
+                                selectedColor2 = .blue
+                            } else if orderNum == 3 {
+                                selectedColor3 = .blue
+                            }
                         }){
                             Circle().fill(
                                 RadialGradient(
@@ -79,6 +116,14 @@ struct ColorModal: View {
                         
                         Button(action: {
                             // button action here
+                            self.showSheet = false
+                            if orderNum == 1 {
+                                selectedColor1 = .gray
+                            } else if orderNum == 2 {
+                                selectedColor2 = .gray
+                            } else if orderNum == 3 {
+                                selectedColor3 = .gray
+                            }
                         }){
                             Circle().fill(
                                 RadialGradient(
@@ -99,10 +144,8 @@ struct ColorModal: View {
 }
 
 struct ColorModal_Previews: PreviewProvider {
-    
-    @Binding private var showSheet: Bool
-    
     static var previews: some View {
-        ColorModal().previewInterfaceOrientation(.landscapeLeft)
+        ColorModal(showSheet: .constant(false), selectedColor1: .constant(Color.red), selectedColor2: .constant(Color.red), selectedColor3: .constant(Color.red), orderNum: .constant(0))
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

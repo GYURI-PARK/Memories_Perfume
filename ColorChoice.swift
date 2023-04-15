@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ColorChoice: View {
     
-    @State private var showSheet: Bool = false
+    @State var showSheet = false
+    @State var selectedColor1 = Color.white
+    @State var selectedColor2 = Color.white
+    @State var selectedColor3 = Color.white
+    @State var orderNum = 0
     
     var body: some View {
             ZStack{
@@ -41,14 +45,15 @@ struct ColorChoice: View {
                                     .frame(width: 300, height: 300)
                                     .shadow(color: Color(0xCECECE),radius: 10)
                                     .padding(.top, 50)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(selectedColor1)
                                 
                                 Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
                                     .onTapGesture {
                                         showSheet = true
+                                        orderNum = 1
                                     }
                                     .sheet(isPresented: $showSheet) {
-                                        ColorModal()
+                                        ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
                                     }
                             }
                         }
@@ -69,14 +74,15 @@ struct ColorChoice: View {
                                     .frame(width: 300, height: 300)
                                     .shadow(color: Color(0xCECECE),radius: 10)
                                     .padding(.top, 50)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(selectedColor2)
                                 
                                 Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
                                     .onTapGesture {
                                         showSheet = true
+                                        orderNum = 2
                                     }
                                     .sheet(isPresented: $showSheet) {
-                                        ColorModal()
+                                        ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
                                     }
                             }
                             
@@ -98,14 +104,15 @@ struct ColorChoice: View {
                                     .frame(width: 300, height: 300)
                                     .shadow(color: Color(0xCECECE),radius: 10)
                                     .padding(.top, 50)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(selectedColor3)
                                 
                                 Image(systemName: "plus.circle").font(.system(size: 70)).offset(x:0, y: 23).foregroundColor(Color(0xCECECE))
                                     .onTapGesture {
                                         showSheet = true
+                                        orderNum = 3
                                     }
                                     .sheet(isPresented: $showSheet) {
-                                        ColorModal()
+                                        ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
                                     }
                             }
                         }
@@ -118,41 +125,9 @@ struct ColorChoice: View {
         }
 }
 
-struct ColorPickerView: View {
-    @State private var selectedColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)
-    @State var colorList: [CGFloat] = []
-    
-    var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 50)
-                .fill(Color(selectedColor))
-                .overlay(Image(systemName: "paintpalette.fill").offset(x: -20, y: 0)
-                    .foregroundColor(.white)
-                    .font(.largeTitle))
-            
-                .shadow(radius: 10)
-                .frame(width: 300, height: 300)
-                .padding(.top, 50)
-            
-            ColorPicker("", selection: $selectedColor)
-                .labelsHidden()
-                .offset(x:30, y: 28)
-            
-                .onChange(of: selectedColor) { newValue in
-                    if ((newValue.components) != nil) {
-                        for i in newValue.components! {
-                            colorList.append(i)
-                        }
-                    }
-                }
-        }
-    }
-}
-
-
 struct ColorChoice_Previews: PreviewProvider {
     
     static var previews: some View {
-        ColorChoice().previewInterfaceOrientation(.landscapeLeft)
+        ColorChoice(showSheet: false).previewInterfaceOrientation(.landscapeLeft)
     }
 }
