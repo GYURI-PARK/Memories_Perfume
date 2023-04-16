@@ -31,7 +31,7 @@ struct ColorModal: View {
                         Button(action: {
                             // button action here
                             self.showSheet = false
-                            //self.selectedColor = .red
+                            
                             if orderNum == 1 {
                                 selectedColor1 = .red
                             } else if orderNum == 2 {

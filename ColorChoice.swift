@@ -21,7 +21,7 @@ struct ColorChoice: View {
     var body: some View {
         NavigationView{
             ZStack{
-                NavigationLink(destination: ParticleChoice(), isActive: $shouldNavigate) {
+                NavigationLink(destination: ParticleChoice(selectedColor1: $selectedColor1, selectedColor2: $selectedColor2, selectedColor3: $selectedColor3), isActive: $shouldNavigate) {
                     EmptyView()
                 }
                 VStack{
