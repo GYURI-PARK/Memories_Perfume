@@ -1,8 +1,9 @@
-//
-//  ImgModal.swift
-//  WWDC2023
-//
-//  Created by GYURI PARK on 2023/04/16.
+////
+////  ImgModal.swift
+////  WWDC2023
+////
+////  Created by GYURI PARK on 2023/04/16.
+////
 //
 
 import SwiftUI
@@ -23,11 +24,11 @@ struct ImgModal: View {
             ScrollView(){
                 VStack(spacing: 20){
                     Spacer()
-                    ForEach(0..<6) { row in
+                    ForEach(0..<10) { row in
                         HStack(spacing: 20){
                             Spacer()
                             ForEach(0..<3) { col in
-                                FrameView(imageName: emojis[row * 3 + col], showSheet: .constant(true))
+                                FrameView(showSheet: $showSheet, orderNum: $orderNum, selectedImg1: $selectedImg1, selectedImg2: $selectedImg2, selectedImg3: $selectedImg3, imageName: emojis[row * 3 + col])
                                     .frame(width: 180, height: 180)
                                 Spacer()
                             }
@@ -40,10 +41,15 @@ struct ImgModal: View {
 }
 
 struct FrameView: View {
-    let imageName: String
     
     @Binding var showSheet: Bool
-        
+    @Binding var orderNum: Int
+    @Binding var selectedImg1: String
+    @Binding var selectedImg2: String
+    @Binding var selectedImg3: String
+    
+    let imageName: String
+    
         var body: some View {
             ZStack{
                 RoundedRectangle(cornerRadius: 50)
@@ -52,6 +58,18 @@ struct FrameView: View {
                 
                 Button(action: {
                     self.showSheet = false
+                    
+                    if orderNum == 1 {
+                        selectedImg1 = imageName
+                        print("selectedImg1: \(selectedImg1)")
+                    } else if orderNum == 2 {
+                        selectedImg2 = imageName
+                        print("selectedImg2: \(selectedImg2)")
+                    } else if orderNum == 3 {
+                        selectedImg3 = imageName
+                        print("selectedImg3: \(selectedImg3)")
+                    }
+                    
                 }){
                     Image(imageName)
                         .resizable()

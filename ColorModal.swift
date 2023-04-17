@@ -145,7 +145,7 @@ struct ColorModal: View {
 
 struct ColorModal_Previews: PreviewProvider {
     static var previews: some View {
-        ColorModal(showSheet: .constant(false), selectedColor1: .constant(Color.red), selectedColor2: .constant(Color.red), selectedColor3: .constant(Color.red), orderNum: .constant(0))
+        ColorModal(showSheet: .constant(false), selectedColor1: .constant(Color.white), selectedColor2: .constant(Color.white), selectedColor3: .constant(Color.white), orderNum: .constant(0))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

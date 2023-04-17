@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ParticleChoice: View {
-    @State var showSheet = false
+    
     @Binding var selectedColor1: Color
     @Binding var selectedColor2: Color
     @Binding var selectedColor3: Color
     
+    @State var showSheet = false
     @State var selectedImg1 = ""
     @State var selectedImg2 = ""
     @State var selectedImg3 = ""
@@ -133,6 +134,6 @@ struct ParticleChoice: View {
     }
 struct ParticleChoice_Previews: PreviewProvider {
     static var previews: some View {
-        ParticleChoice(showSheet: false, selectedColor1: .constant(Color.red), selectedColor2: .constant(Color.red), selectedColor3: .constant(Color.red)).previewInterfaceOrientation(.landscapeLeft)
+        ParticleChoice(selectedColor1: .constant(Color.white), selectedColor2: .constant(Color.white), selectedColor3: .constant(Color.white), showSheet: false).previewInterfaceOrientation(.landscapeLeft)
     }
 }
