@@ -4,7 +4,7 @@
 ////
 ////  Created by GYURI PARK on 2023/04/16.
 ////
-//
+////
 
 import SwiftUI
 
@@ -15,7 +15,6 @@ struct ImgModal: View {
     @Binding var selectedImg2: String
     @Binding var selectedImg3: String
     @Binding var orderNum: Int
-    
     
 
     let emojis = (1...30).map { "emoji\($0)" }
