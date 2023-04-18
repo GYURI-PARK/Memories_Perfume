@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct SpreadView: View {
+    var scene = MergeScene()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        SpriteView(scene: scene)
+            .ignoresSafeArea()
     }
 }
 
 struct SpreadView_Previews: PreviewProvider {
     static var previews: some View {
-        SpreadView()
+        SpreadView().previewInterfaceOrientation(.landscapeLeft)
     }
 }

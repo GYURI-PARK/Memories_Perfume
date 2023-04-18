@@ -25,7 +25,7 @@ struct ParticleChoice: View {
             VStack{
                 Spacer()
                 
-                Text("Select Mood Imoticon")
+                Text("Select Mood Emoticon")
                     .font(.system(size: 100))
                     .fontWeight(.black)
                     .padding(.vertical, 25)

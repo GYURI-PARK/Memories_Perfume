@@ -74,7 +74,7 @@ class LoadingViewModel: ObservableObject {
         "특정 향을 맡으면 예전 있었던 장소로 돌아가는 기분이 들기도 합니다.",
         "향수는 Top / Middle / Base가 있습니다.",
         "그리고 각각의 Note에는 정해진 역할이 있죠",
-        "당신이 앞에서 입력한 Beginning / Main / End는 여기서 각각 향수의 Top / Middle / Base가 됩니다.",
+        "당신이 앞에서 입력한 Beginning / Main / End는 \n 여기서 각각 향수의 Top / Middle / Base가 됩니다.",
         "그럼 당신의 추억 향수를 뿌리러 가볼까요?"
     ]
     @Published var currentLoadingTextIndex = 0
