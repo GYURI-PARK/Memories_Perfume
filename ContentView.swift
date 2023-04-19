@@ -5,7 +5,7 @@ struct ContentView: View {
         NavigationView {
             ZStack{
                 
-                Image("main")
+                Image("content")
                 
                 NavigationLink(
                     destination: ColorChoice())
@@ -13,14 +13,14 @@ struct ContentView: View {
                     Text("Start")
                         .font(.system(size: 50).bold())
                         .foregroundColor(.white)
-                        .padding(.horizontal, 60)
+                        .padding(.horizontal, 80)
                         .padding(.vertical, 25)
                         .background(Color.black)
-                        .cornerRadius(25)
+                        .cornerRadius(50)
                         .shadow(radius: 10)
                 }
                 .buttonStyle(PlainButtonStyle())
-                .offset(x: 470, y: 330)
+                .offset(x: 0, y: 350)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

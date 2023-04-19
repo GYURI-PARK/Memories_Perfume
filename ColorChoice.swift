@@ -30,22 +30,32 @@ struct ColorChoice: View {
                     
                     Text("Select Mood Color")
                         .font(.system(size: 100))
-                        .fontWeight(.black)
+                        .fontWeight(.heavy)
                         .padding(.vertical, 25)
                     
                     Spacer()
                     
+                    Text("Please choose COLOR that represent the emotions you feel \n when recalling that memory, based on the flow of time.")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 35))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color(0x498C5A))
+                        .lineSpacing(15)
+                    
+                    Spacer(minLength: 100)
+                    
                     HStack{
                         VStack{
-                            Text("Top Note")
+                            Text("Beginning")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                            
-                            Text("Around the beginning of that memory, \n             Choose your mood color")
-                                .font(.system(size: 20))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(0xCECECE))
                                 .frame(width: 400, height: 60)
+                            
+//                            Text("Choose a color that represents the emotion you felt at the beginning of that memory.")
+//                                .font(.system(size: 20))
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(Color(0xCECECE))
+//                                .frame(width: 400, height: 60)
                             
                             ZStack{
                                 Circle()
@@ -58,7 +68,6 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 1
-//                                        dataModel.colors.append("\(selectedColor1)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
@@ -67,15 +76,16 @@ struct ColorChoice: View {
                         }
                         
                         VStack{
-                            Text("Middle Note")
+                            Text("Main")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                            
-                            Text("      What color mood \n does the memory have?")
-                                .font(.system(size: 20))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(0xCECECE))
                                 .frame(width: 400, height: 60)
+                            
+//                            Text("             What color represents \n the main emotion of that memory?")
+//                                .font(.system(size: 20))
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(Color(0xCECECE))
+//                                .frame(width: 400, height: 60)
                             
                             ZStack{
                                 Circle()
@@ -98,15 +108,16 @@ struct ColorChoice: View {
                         }
                         
                         VStack{
-                            Text("Base Note")
+                            Text("End")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                            
-                            Text("      What color does \nthe memory leave you?")
-                                .font(.system(size: 20))
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(0xCECECE))
                                 .frame(width: 400, height: 60)
+                            
+//                            Text("         What color does that \n memory evoke for you now?")
+//                                .font(.system(size: 20))
+//                                .fontWeight(.semibold)
+//                                .foregroundColor(Color(0xCECECE))
+//                                .frame(width: 400, height: 60)
                             
                             ZStack{
                                 Circle()
@@ -139,12 +150,9 @@ struct ColorChoice: View {
                     
                 }
             }
-//        }.navigationViewStyle(StackNavigationViewStyle())
-//        .navigationBarHidden(true)
             .onDisappear {
                 dataModel.colors = [selectedColor1, selectedColor2, selectedColor3]
 
-                //print(DataModel.instance.colors)
             }
     }
 }

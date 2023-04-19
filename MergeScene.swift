@@ -13,7 +13,7 @@ class MergeScene: SKScene {
     var model = DataModel.instance
     
     
-    //let background = SKSpriteNode(imageNamed: "sweden")
+    let background = SKSpriteNode(imageNamed: "bg")
     
     override func didMove(to view: SKView) {
         scene?.size = view.bounds.size
@@ -21,19 +21,27 @@ class MergeScene: SKScene {
         physicsWorld.gravity = .zero
         
         // background and World
-//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        background.zPosition = 1
-//        background.setScale(0.65)
-//        addChild(background)
+        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        background.zPosition = 1
+        background.setScale(1)
+        addChild(background)
         
         // ball creation
         // top base
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+            
+            let label = SKLabelNode(text: "Top Note")
+            label.fontColor = UIColor.black
+            label.fontName = "Helvetica-Bold"
+            label.fontSize = 30
+            label.position = CGPoint(x: size.width / 2, y: size.height / 2)
+            label.zPosition = 15
+            addChild(label)
+            
             // 10초 후 ball 생성
             for i in 1...10 {
                 let ball = SKShapeNode(circleOfRadius: 50)
-//                let color = SKColor.blue.withAlphaComponent(0.7)
-                let color = SKColor(model.colors[0]).withAlphaComponent(0.7)
+                let color = SKColor(model.colors[0]).withAlphaComponent(0.5)
                 
                 ball.fillColor = color
                 ball.fillTexture = SKTexture(imageNamed: model.emojiNum[0])
@@ -71,8 +79,7 @@ class MergeScene: SKScene {
             // 10초 후 ball 생성
             for i in 1...20 {
                 let ball = SKShapeNode(circleOfRadius: 100)
-                //let color = SKColor.red.withAlphaComponent(0.7)
-                let color = SKColor(model.colors[1]).withAlphaComponent(0.7)
+                let color = SKColor(model.colors[1]).withAlphaComponent(0.5)
                 
                 ball.fillColor = color
                 ball.fillTexture = SKTexture(imageNamed: model.emojiNum[1])
@@ -111,8 +118,7 @@ class MergeScene: SKScene {
             // 10초 후 ball 생성
             for i in 1...15 {
                 let ball = SKShapeNode(circleOfRadius: 80)
-                //let color = SKColor.green.withAlphaComponent(0.7)
-                let color = SKColor(model.colors[2]).withAlphaComponent(0.7)
+                let color = SKColor(model.colors[2]).withAlphaComponent(0.5)
                 
                 ball.fillColor = color
                 ball.fillTexture = SKTexture(imageNamed: model.emojiNum[2])
@@ -133,7 +139,7 @@ class MergeScene: SKScene {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 40) {[self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {[self] in
             // 10초 후 ball 제거
             for child in self.children {
                 if let ball = child as? SKShapeNode {

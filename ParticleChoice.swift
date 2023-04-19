@@ -33,22 +33,32 @@ struct ParticleChoice: View {
                 
                 Text("Select Mood Emoticon")
                     .font(.system(size: 100))
-                    .fontWeight(.black)
+                    .fontWeight(.heavy)
                     .padding(.vertical, 25)
                 
                 Spacer()
                 
+                Text("Please choose EMOTICON that represent the emotions you feel \n when recalling that memory, based on the flow of time.")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 35))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(0x498C5A))
+                    .lineSpacing(15)
+                
+                Spacer(minLength: 100)
+                
                 HStack{
                     VStack{
-                        Text("Top Note")
+                        Text("Beginnig")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                        
-                        Text("Around the beginning of that memory, \n             Choose your mood color")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
+                        
+//                        Text("Around the beginning of that memory, \n             Choose your mood color")
+//                            .font(.system(size: 20))
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color(0xCECECE))
+//                            .frame(width: 400, height: 60)
                         
                         ZStack{
                             Circle()
@@ -79,15 +89,16 @@ struct ParticleChoice: View {
                     }
                     
                     VStack{
-                        Text("Middle Note")
+                        Text("Main")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                        
-                        Text("      What color mood \n does the memory have?")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
+                        
+//                        Text("      What color mood \n does the memory have?")
+//                            .font(.system(size: 20))
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color(0xCECECE))
+//                            .frame(width: 400, height: 60)
                         
                         ZStack{
                             Circle()
@@ -119,15 +130,16 @@ struct ParticleChoice: View {
                     }
                     
                     VStack{
-                        Text("Base Note")
+                        Text("End")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                        
-                        Text("      What color does \nthe memory leave you?")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color(0xCECECE))
                             .frame(width: 400, height: 60)
+                        
+//                        Text("      What color does \nthe memory leave you?")
+//                            .font(.system(size: 20))
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(Color(0xCECECE))
+//                            .frame(width: 400, height: 60)
                         
                         ZStack{
                             Circle()
@@ -171,8 +183,6 @@ struct ParticleChoice: View {
         }
         .onDisappear {
             dataModel.emojiNum = [selectedImg1, selectedImg2, selectedImg3]
-
-            //print(DataModel.instance.colors)
         }
     }
 }

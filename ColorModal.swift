@@ -18,16 +18,12 @@ struct ColorModal: View {
     var body: some View {
         
         VStack{
-//            Spacer()
-//            Text("Choose One Color")
-//                .font(.system(size: 100))
-//                .fontWeight(.bold)
-//
             Spacer()
             
             HStack(alignment: .center, spacing: 40){
-                ScrollView(.horizontal, showsIndicators: true){
-                    HStack(spacing: 40){
+                    
+                VStack(spacing: 50){
+                    HStack(spacing: 80){
                         Button(action: {
                             // button action here
                             self.showSheet = false
@@ -43,12 +39,33 @@ struct ColorModal: View {
                             Circle()
                                 .fill(
                                     RadialGradient(
-                                        gradient: Gradient(colors: [Color(0xFF9D94), Color(0xFF5747), Color(0x802B24), Color(0xCC4639)]),
+                                        gradient: Gradient(colors: [Color(0xFFDCDC), Color(0xFF8282),Color(0xD90000), Color(0xD90000), Color(0xD90000)]),
                                         center: .center,
                                         startRadius: 0,
                                         endRadius: 150
                                     )
-                                ).frame(width: 180)
+                                ).frame(width: 130)
+                        }
+                        
+                        Button(action: {
+                            // button action here
+                            self.showSheet = false
+                            if orderNum == 1 {
+                                selectedColor1 = .orange
+                            } else if orderNum == 2 {
+                                selectedColor2 = .orange
+                            } else if orderNum == 3 {
+                                selectedColor3 = .orange
+                            }
+                        }){
+                            Circle().fill(
+                                RadialGradient(
+                                    gradient: Gradient(colors: [Color(0xFFE4CB), Color(0xFF8A10), Color(0xFF8A00), Color(0xE77600)]),
+                                    center: .center,
+                                    startRadius: 0,
+                                    endRadius: 150
+                                )
+                            ).frame(width: 130)
                         }
                         
                         Button(action: {
@@ -64,75 +81,148 @@ struct ColorModal: View {
                         }){
                             Circle().fill(
                                 RadialGradient(
-                                    gradient: Gradient(colors: [Color(0xFFFD25), Color(0xFFD432), Color(0xFFA525), Color(0xA64F03)]),
+                                    gradient: Gradient(colors: [Color(0xFFF9BF), Color(.yellow), Color(0xFFF100), Color(0xFFF100)]),
                                     center: .center,
                                     startRadius: 0,
                                     endRadius: 150
                                 )
-                            ).frame(width: 180)
+                            ).frame(width: 130)
                         }
-                        
-                        Button(action: {
-                            // button action here
-                            self.showSheet = false
-                            if orderNum == 1 {
-                                selectedColor1 = .green
-                            } else if orderNum == 2 {
-                                selectedColor2 = .green
-                            } else if orderNum == 3 {
-                                selectedColor3 = .green
+                    }
+                    
+                    VStack(spacing: 50){
+                        HStack(spacing: 80){
+                            Button(action: {
+                                // button action here
+                                self.showSheet = false
+                                if orderNum == 1 {
+                                    selectedColor1 = .green
+                                } else if orderNum == 2 {
+                                    selectedColor2 = .green
+                                } else if orderNum == 3 {
+                                    selectedColor3 = .green
+                                }
+                            }){
+                                Circle().fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color(0xE9FFE9), Color(0x8BDE89), Color(0x039E00), Color(0x039E00)]),
+                                        center: .center,
+                                        startRadius: 0,
+                                        endRadius: 150
+                                    )
+                                ).frame(width: 130)
                             }
-                        }){
-                            Circle().fill(
-                                RadialGradient(
-                                    gradient: Gradient(colors: [Color(0xBED624), Color(0x9BBF17), .green, Color(0x1F643C)]),
-                                    center: .center,
-                                    startRadius: 0,
-                                    endRadius: 150
-                                )
-                            ).frame(width: 180)
+                            
+                            Button(action: {
+                                // button action here
+                                self.showSheet = false
+                                if orderNum == 1 {
+                                    selectedColor1 = .cyan
+                                } else if orderNum == 2 {
+                                    selectedColor2 = .cyan
+                                } else if orderNum == 3 {
+                                    selectedColor3 = .cyan
+                                }
+                            }){
+                                Circle().fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color(0xD9F3FB), Color(0x6FD1F0), Color(0x03B3EA), .blue]),
+                                        center: .center,
+                                        startRadius: 0,
+                                        endRadius: 150
+                                    )
+                                ).frame(width: 130)
+                            }
+                            
+                            Button(action: {
+                                // button action here
+                                self.showSheet = false
+                                if orderNum == 1 {
+                                    selectedColor1 = .blue
+                                } else if orderNum == 2 {
+                                    selectedColor2 = .blue
+                                } else if orderNum == 3 {
+                                    selectedColor3 = .blue
+                                }
+                            }){
+                                Circle().fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [Color(0xE2E5FF), Color(0x7280FF), Color(0x031CFB), Color(0x031CFB), .blue]),
+                                        center: .center,
+                                        startRadius: 0,
+                                        endRadius: 150
+                                    )
+                                ).frame(width: 130)
+                            }
                         }
-                        
-                        Button(action: {
-                            // button action here
-                            self.showSheet = false
-                            if orderNum == 1 {
-                                selectedColor1 = .blue
-                            } else if orderNum == 2 {
-                                selectedColor2 = .blue
-                            } else if orderNum == 3 {
-                                selectedColor3 = .blue
+                        VStack(spacing: 50){
+                            HStack(spacing: 80){
+                                
+                                Button(action: {
+                                    // button action here
+                                    self.showSheet = false
+                                    if orderNum == 1 {
+                                        selectedColor1 = .purple
+                                    } else if orderNum == 2 {
+                                        selectedColor2 = .purple
+                                    } else if orderNum == 3 {
+                                        selectedColor3 = .purple
+                                    }
+                                }){
+                                    Circle().fill(
+                                        RadialGradient(
+                                            gradient: Gradient(colors: [Color(0xE4EAF2), Color(0x9A6AD7), Color(0x5C00D1), Color(0x5C00D1)]),
+                                            center: .center,
+                                            startRadius: 0,
+                                            endRadius: 150
+                                        )
+                                    ).frame(width: 130)
+                                }
+                                
+                                Button(action: {
+                                    // button action here
+                                    self.showSheet = false
+                                    if orderNum == 1 {
+                                        selectedColor1 = .pink
+                                    } else if orderNum == 2 {
+                                        selectedColor2 = .pink
+                                    } else if orderNum == 3 {
+                                        selectedColor3 = .pink
+                                    }
+                                }){
+                                    Circle().fill(
+                                        RadialGradient(
+                                            gradient: Gradient(colors: [Color(0xFEDBFA), Color(0xF386E8), Color(0xE300CD), Color(0xE300CD)]),
+                                            center: .center,
+                                            startRadius: 0,
+                                            endRadius: 150
+                                        )
+                                    ).frame(width: 130)
+                                }
+                                
+                                
+                                
+                                Button(action: {
+                                    // button action here
+                                    self.showSheet = false
+                                    if orderNum == 1 {
+                                        selectedColor1 = .gray
+                                    } else if orderNum == 2 {
+                                        selectedColor2 = .gray
+                                    } else if orderNum == 3 {
+                                        selectedColor3 = .gray
+                                    }
+                                }){
+                                    Circle().fill(
+                                        RadialGradient(
+                                            gradient: Gradient(colors: [Color(0xE4EAF2), Color(0x949BA6), Color(0x565759), .blue]),
+                                            center: .center,
+                                            startRadius: 0,
+                                            endRadius: 150
+                                        )
+                                    ).frame(width: 130)
+                                }
                             }
-                        }){
-                            Circle().fill(
-                                RadialGradient(
-                                    gradient: Gradient(colors: [Color(0x94BCE0), Color(0x66ADD9), Color(0x0468BF), Color(0xD9D9E1)]),
-                                    center: .center,
-                                    startRadius: 0,
-                                    endRadius: 150
-                                )
-                            ).frame(width: 180)
-                        }
-                        
-                        Button(action: {
-                            // button action here
-                            self.showSheet = false
-                            if orderNum == 1 {
-                                selectedColor1 = .gray
-                            } else if orderNum == 2 {
-                                selectedColor2 = .gray
-                            } else if orderNum == 3 {
-                                selectedColor3 = .gray
-                            }
-                        }){
-                            Circle().fill(
-                                RadialGradient(
-                                    gradient: Gradient(colors: [Color(0xE4EAF2), Color(0x949BA6), Color(0x565759), .blue]),
-                                    center: .center,
-                                    startRadius: 0,
-                                    endRadius: 150
-                                )
-                            ).frame(width: 180)
                         }
                     }
                 }

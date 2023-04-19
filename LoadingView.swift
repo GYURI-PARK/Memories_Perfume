@@ -56,9 +56,11 @@ struct MyLoadingView: View {
                 Color(.systemBackground)
                     .ignoresSafeArea()
                 ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                    .scaleEffect(5)
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color(0x498C5A)))
+                    .scaleEffect(10)
             }
+            Spacer()
+            
             Text(viewModel.loadingTexts[currentLoadingTextIndex])
                 .font(.system(size: 50))
                 .fontWeight(.bold)
@@ -84,7 +86,7 @@ struct MyLoadingView: View {
 
 class LoadingViewModel: ObservableObject {
     let loadingTexts = [
-        "당신이 느꼈던 감정들이 향수로 만들어지고 있습니다."
+        "Your emotions are being turned into perfume."
 //        "향은 우리를 쉽게 추억으로 데려다 놓습니다.",
 //        "특정 향을 맡으면 예전 있었던 장소로 돌아가는 기분이 들기도 합니다.",
 //        "향수는 Top / Middle / Base가 있습니다.",
