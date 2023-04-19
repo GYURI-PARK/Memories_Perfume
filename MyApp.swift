@@ -6,7 +6,8 @@ struct MyApp: App {
         WindowGroup {
 //            ParticleChoice(selectedColor1: .constant(Color.red), selectedColor2: .constant(Color.red), selectedColor3: .constant(Color.red))
             //ColorChoice()
-            LoadingView()
+            //LoadingView()
+            ContentView()
         }
     }
 }

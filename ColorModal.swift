@@ -18,11 +18,11 @@ struct ColorModal: View {
     var body: some View {
         
         VStack{
-            Spacer()
-            Text("Choose One Color")
-                .font(.system(size: 100))
-                .fontWeight(.bold)
-            
+//            Spacer()
+//            Text("Choose One Color")
+//                .font(.system(size: 100))
+//                .fontWeight(.bold)
+//
             Spacer()
             
             HStack(alignment: .center, spacing: 40){

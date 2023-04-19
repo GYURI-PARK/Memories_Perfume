@@ -19,7 +19,7 @@ struct ColorChoice: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             ZStack{
                 NavigationLink(destination: ParticleChoice(selectedColor1: $selectedColor1, selectedColor2: $selectedColor2, selectedColor3: $selectedColor3), isActive: $shouldNavigate) {
                     EmptyView()
@@ -125,7 +125,6 @@ struct ColorChoice: View {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                             presentationMode.wrappedValue.dismiss()
                                         }
-                                        self.presentationMode.wrappedValue.dismiss()
                                         self.showSheet = false
                                         self.shouldNavigate = true
                                     }
@@ -137,15 +136,14 @@ struct ColorChoice: View {
                     
                 }
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(true)
+//        }.navigationViewStyle(StackNavigationViewStyle())
+//        .navigationBarHidden(true)
     }
-    
 }
 
 struct ColorChoice_Previews: PreviewProvider {
     
     static var previews: some View {
-        ColorChoice(showSheet: false).previewInterfaceOrientation(.landscapeLeft)
+        ColorChoice().previewInterfaceOrientation(.landscapeLeft)
     }
 }

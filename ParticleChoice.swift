@@ -18,10 +18,15 @@ struct ParticleChoice: View {
     @State var selectedImg2 = ""
     @State var selectedImg3 = ""
     @State var orderNum = 0
+    @State private var shouldNavigate = false
     
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
+            NavigationLink(destination: LoadingView(), isActive: $shouldNavigate) {
+                EmptyView()
+            }
             VStack{
                 Spacer()
                 
@@ -145,12 +150,13 @@ struct ParticleChoice: View {
                                 }
                                 .sheet(isPresented: $showSheet) {
                                     ImgModal(showSheet: self.$showSheet, selectedImg1: self.$selectedImg1, selectedImg2: self.$selectedImg2, selectedImg3: self.$selectedImg3, orderNum: self.$orderNum)
+                                }.onChange(of: selectedImg3) { img in
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }
+                                    self.showSheet = false
+                                    self.shouldNavigate = true
                                 }
-//                            if !selectedImg3.isEmpty {
-//                                NavigationLink(destination: LoadingView()) {
-//                                    EmptyView()
-//                                }
-//                            }
                         }
                     }
                 }

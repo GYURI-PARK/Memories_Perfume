@@ -11,7 +11,7 @@ import GameKit
 
 class MergeScene: SKScene {
     
-    let background = SKSpriteNode(imageNamed: "sweden")
+    //let background = SKSpriteNode(imageNamed: "sweden")
     
     override func didMove(to view: SKView) {
         scene?.size = view.bounds.size
@@ -19,10 +19,10 @@ class MergeScene: SKScene {
         physicsWorld.gravity = .zero
         
         // background and World
-        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        background.zPosition = 1
-        background.setScale(0.65)
-        addChild(background)
+//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+//        background.zPosition = 1
+//        background.setScale(0.65)
+//        addChild(background)
         
         // ball creation
         // top base

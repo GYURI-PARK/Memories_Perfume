@@ -8,20 +8,34 @@
 import SwiftUI
 
 struct LoadingView: View {
-    
-    @State private var isLoading = false
+    @State private var isLoading = true
+    @State var opacity = 0.0
     @ObservedObject var viewModel = LoadingViewModel()
 
-        var body: some View {
-            ZStack {
-                SpreadView()
-                
-                if isLoading {
-                    MyLoadingView(viewModel: viewModel)
+    var body: some View {
+        ZStack {
+            if isLoading {
+                MyLoadingView(viewModel: viewModel) {
+                    isLoading = false
                 }
             }
-            .onAppear { startFakeNetworkCall()}
+            if !isLoading {
+                SpreadView()
+                    .opacity(opacity)
+                    .onAppear {
+                        let baseAnimation = Animation.easeInOut(duration: 1)
+                        let repeated = baseAnimation.repeatCount(1)
+
+                        withAnimation(repeated) {
+                            opacity = 1.0
+                        }
+                    }
+                    .transition(.opacity)
+            }
         }
+        .onAppear { startFakeNetworkCall() }
+    }
+
     func startFakeNetworkCall() {
         isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
@@ -32,11 +46,12 @@ struct LoadingView: View {
 
 struct MyLoadingView: View {
     @ObservedObject var viewModel: LoadingViewModel
-    
-    var body: some View{
-        VStack{
+    @State var currentLoadingTextIndex = 0
+    var completion: () -> Void
+
+    var body: some View {
+        VStack {
             Spacer()
-            
             ZStack {
                 Color(.systemBackground)
                     .ignoresSafeArea()
@@ -44,28 +59,28 @@ struct MyLoadingView: View {
                     .progressViewStyle(CircularProgressViewStyle(tint: .gray))
                     .scaleEffect(5)
             }
-            
-            Text(viewModel.loadingTexts[viewModel.currentLoadingTextIndex])
+            Text(viewModel.loadingTexts[currentLoadingTextIndex])
                 .font(.system(size: 50))
                 .fontWeight(.bold)
-            
             Spacer(minLength: 200)
         }
-        .onAppear{ startFakeNetworkCall()}
+        .onAppear {
+            startFakeNetworkCall()
+        }
     }
+
     func startFakeNetworkCall() {
-        let delay = Double(viewModel.loadingTexts[viewModel.currentLoadingTextIndex].count) / 10
-        // 10 자리수당 1초로 설정
-        
+        let delay = Double(viewModel.loadingTexts[currentLoadingTextIndex].count) / 10
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            if viewModel.currentLoadingTextIndex < viewModel.loadingTexts.count - 1 {
-                viewModel.currentLoadingTextIndex += 1
+            if currentLoadingTextIndex < viewModel.loadingTexts.count - 1 {
+                currentLoadingTextIndex += 1
                 startFakeNetworkCall()
+            } else {
+                completion()
             }
         }
     }
 }
-
 
 class LoadingViewModel: ObservableObject {
     let loadingTexts = [
@@ -77,7 +92,7 @@ class LoadingViewModel: ObservableObject {
         "당신이 앞에서 입력한 Beginning / Main / End는 \n 여기서 각각 향수의 Top / Middle / Base가 됩니다.",
         "그럼 당신의 추억 향수를 뿌리러 가볼까요?"
     ]
-    @Published var currentLoadingTextIndex = 0
+ 
 }
 
 

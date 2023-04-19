@@ -2,56 +2,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
-            
-            BackgroundView()
-            
-            HStack{
-                Spacer()
+        NavigationView {
+            ZStack{
                 
-                VStack(alignment: .leading){
-                    Spacer()
-                    
-                    Text("Scent Visualization ;")
-                        .font(.system(size: 70))
-                        .fontWeight(.semibold)
-                    
-                    Spacer(minLength: 300)
-                    
-                    Button("Start"){
-                        // colorchoice로 가야됨
-                    }
-                    .font(.system(size: 30).bold())
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 50)
-                    .padding(.vertical, 15)
-                    .background(Color.black)
-                    .cornerRadius(25)
-                    .shadow(radius: 10)
-                    
-                    Spacer()
-                    
-                    Text("See")
-                        .font(.system(size: 100))
-                        .fontWeight(.bold)
-                        
-                    Text("Your")
-                        .font(.system(size: 100))
-                        .fontWeight(.bold)
-                    Text("Perfume")
-                        .font(.system(size: 100))
-                        .fontWeight(.bold)
-                    
-                    Spacer()
+                Image("main")
+                
+                NavigationLink(
+                    destination: ColorChoice())
+                {
+                    Text("Start")
+                        .font(.system(size: 50).bold())
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 60)
+                        .padding(.vertical, 25)
+                        .background(Color.black)
+                        .cornerRadius(25)
+                        .shadow(radius: 10)
                 }
-                Spacer()
-                
-                Image("bottle")
-                Spacer()
+                .buttonStyle(PlainButtonStyle())
+                .offset(x: 470, y: 330)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+//        .navigationBarHidden(true)
     }
 }
+
 
 extension Color {
     init(_ hex: UInt, alpha: Double = 1){
