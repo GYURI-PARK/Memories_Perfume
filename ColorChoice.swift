@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ColorChoice: View {
-    
+    @State var dataModel = DataModel.instance
     @State var showSheet = false
     @State var selectedColor1 = Color.white
     @State var selectedColor2 = Color.white
@@ -58,6 +58,7 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 1
+//                                        dataModel.colors.append("\(selectedColor1)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
@@ -87,6 +88,7 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 2
+//                                        dataModel.colors.append("\(selectedColor2)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
@@ -117,6 +119,7 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 3
+//                                        dataModel.colors.append("\(selectedColor3)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
@@ -138,6 +141,11 @@ struct ColorChoice: View {
             }
 //        }.navigationViewStyle(StackNavigationViewStyle())
 //        .navigationBarHidden(true)
+            .onDisappear {
+                dataModel.colors = [selectedColor1, selectedColor2, selectedColor3]
+
+                //print(DataModel.instance.colors)
+            }
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ParticleChoice: View {
     
+    @State var dataModel = DataModel.instance
     @Binding var selectedColor1: Color
     @Binding var selectedColor2: Color
     @Binding var selectedColor3: Color
@@ -69,6 +70,7 @@ struct ParticleChoice: View {
                                 .onTapGesture {
                                     showSheet = true
                                     orderNum = 1
+                                    DataModel.instance.emojiNum.append("\(selectedImg1)")
                                 }
                                 .sheet(isPresented: $showSheet) {
                                     ImgModal(showSheet: self.$showSheet, selectedImg1: self.$selectedImg1, selectedImg2: self.$selectedImg2, selectedImg3: self.$selectedImg3, orderNum: self.$orderNum)
@@ -107,6 +109,7 @@ struct ParticleChoice: View {
                                 .onTapGesture {
                                     showSheet = true
                                     orderNum = 2
+                                    DataModel.instance.emojiNum.append("\(selectedImg2)")
                                 }
                                 .sheet(isPresented: $showSheet) {
                                     ImgModal(showSheet: self.$showSheet, selectedImg1: self.$selectedImg1, selectedImg2: self.$selectedImg2, selectedImg3: self.$selectedImg3, orderNum: self.$orderNum)
@@ -147,6 +150,7 @@ struct ParticleChoice: View {
                                 .onTapGesture {
                                     showSheet = true
                                     orderNum = 3
+                                    DataModel.instance.emojiNum.append("\(selectedImg3)")
                                 }
                                 .sheet(isPresented: $showSheet) {
                                     ImgModal(showSheet: self.$showSheet, selectedImg1: self.$selectedImg1, selectedImg2: self.$selectedImg2, selectedImg3: self.$selectedImg3, orderNum: self.$orderNum)
@@ -164,6 +168,11 @@ struct ParticleChoice: View {
                 Spacer()
                 
             }
+        }
+        .onDisappear {
+            dataModel.emojiNum = [selectedImg1, selectedImg2, selectedImg3]
+
+            //print(DataModel.instance.colors)
         }
     }
 }

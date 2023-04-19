@@ -10,6 +10,8 @@ import SpriteKit
 import GameKit
 
 class MergeScene: SKScene {
+    var model = DataModel.instance
+    
     
     //let background = SKSpriteNode(imageNamed: "sweden")
     
@@ -30,10 +32,11 @@ class MergeScene: SKScene {
             // 10초 후 ball 생성
             for i in 1...10 {
                 let ball = SKShapeNode(circleOfRadius: 50)
-                let color = SKColor.blue.withAlphaComponent(0.7)
+//                let color = SKColor.blue.withAlphaComponent(0.7)
+                let color = SKColor(model.colors[0]).withAlphaComponent(0.7)
                 
                 ball.fillColor = color
-                ball.fillTexture = SKTexture(imageNamed: "emoji1")
+                ball.fillTexture = SKTexture(imageNamed: model.emojiNum[0])
                 ball.position = CGPoint(x: CGFloat(i) * self.size.width / 11, y: 100)
                 ball.zPosition = 10
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: 50 / 2)
@@ -68,10 +71,11 @@ class MergeScene: SKScene {
             // 10초 후 ball 생성
             for i in 1...20 {
                 let ball = SKShapeNode(circleOfRadius: 100)
-                let color = SKColor.red.withAlphaComponent(0.7)
+                //let color = SKColor.red.withAlphaComponent(0.7)
+                let color = SKColor(model.colors[1]).withAlphaComponent(0.7)
                 
                 ball.fillColor = color
-                ball.fillTexture = SKTexture(imageNamed: "emoji2")
+                ball.fillTexture = SKTexture(imageNamed: model.emojiNum[1])
                 ball.position = CGPoint(x: CGFloat(i) * self.size.width / 11, y: 100)
                 ball.zPosition = 10
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: 50 / 2)
@@ -107,10 +111,11 @@ class MergeScene: SKScene {
             // 10초 후 ball 생성
             for i in 1...15 {
                 let ball = SKShapeNode(circleOfRadius: 80)
-                let color = SKColor.green.withAlphaComponent(0.7)
+                //let color = SKColor.green.withAlphaComponent(0.7)
+                let color = SKColor(model.colors[2]).withAlphaComponent(0.7)
                 
                 ball.fillColor = color
-                ball.fillTexture = SKTexture(imageNamed: "emoji3")
+                ball.fillTexture = SKTexture(imageNamed: model.emojiNum[2])
                 ball.position = CGPoint(x: CGFloat(i) * self.size.width / 11, y: 100)
                 ball.zPosition = 10
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: 50 / 2)
@@ -144,4 +149,3 @@ class MergeScene: SKScene {
         self.physicsBody = frame
     }
 }
-
