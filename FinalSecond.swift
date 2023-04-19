@@ -1,4 +1,11 @@
 //
+//  FinalSecond.swift
+//  WWDC2023
+//
+//  Created by GYURI PARK on 2023/04/20.
+//
+
+//
 //  FinalView.swift
 //  WWDC2023
 //
@@ -7,14 +14,14 @@
 
 import SwiftUI
 
-struct FinalView: View {
+struct FinalSecond: View {
     var body: some View {
         NavigationView {
             ZStack{
                 HStack{
                     Spacer()
                     
-                    Image("Top 1")
+                    Image("Middle")
                     
                     Spacer()
                     
@@ -23,7 +30,7 @@ struct FinalView: View {
                         
                         VStack{
                             Spacer(minLength: 250)
-                            Text("Top Note")
+                            Text("Middle Note")
                                 .fontWeight(.bold)
                                 .font(.system(size: 70))
                                 .foregroundColor(.white)
@@ -37,7 +44,7 @@ struct FinalView: View {
                                     ScrollView() {
                                         Spacer(minLength: 35)
                                         
-                                        Text("Top notes are the initial scents that you smell when you first apply the perfume.")
+                                        Text("Middle notes, also known as heart notes, become noticeable once the top notes have evaporated.")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -46,7 +53,7 @@ struct FinalView: View {
                                         
                                         Spacer(minLength: 55)
                                         
-                                        Text("They are typically light and fresh, and evaporate quickly.")
+                                        Text("They are the main body of the fragrance, and last longer than the top notes.")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -55,7 +62,7 @@ struct FinalView: View {
                                         
                                         Spacer(minLength: 55)
                                         
-                                        Text("Some common top notes include citrus, bergamot, and lavender.")
+                                        Text("Middle notes are usually floral or spicy, and can include scents like rose, jasmine, and cinnamon..")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -96,8 +103,8 @@ struct FinalView: View {
 
 
 
-struct FinalView_Previews: PreviewProvider {
+struct FinalSecond_Previews: PreviewProvider {
     static var previews: some View {
-        FinalView().previewInterfaceOrientation(.landscapeLeft)
+        FinalSecond().previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -8,6 +8,7 @@ struct MyApp: App {
             //ColorChoice()
             //LoadingView()
            ContentView()
+           // FinalView()
         }
     }
 }

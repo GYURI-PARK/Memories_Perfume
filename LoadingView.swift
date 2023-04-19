@@ -64,6 +64,7 @@ struct MyLoadingView: View {
             Text(viewModel.loadingTexts[currentLoadingTextIndex])
                 .font(.system(size: 50))
                 .fontWeight(.bold)
+                .lineSpacing(30)
             Spacer(minLength: 200)
         }
         .onAppear {
@@ -72,7 +73,8 @@ struct MyLoadingView: View {
     }
 
     func startFakeNetworkCall() {
-        let delay = Double(viewModel.loadingTexts[currentLoadingTextIndex].count) / 10
+        let delay = Double(viewModel.loadingTexts[currentLoadingTextIndex].count) / 20
+        // 10단어당 1초
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             if currentLoadingTextIndex < viewModel.loadingTexts.count - 1 {
                 currentLoadingTextIndex += 1
@@ -86,15 +88,10 @@ struct MyLoadingView: View {
 
 class LoadingViewModel: ObservableObject {
     let loadingTexts = [
-        "Your emotions are being turned into perfume."
-//        "향은 우리를 쉽게 추억으로 데려다 놓습니다.",
-//        "특정 향을 맡으면 예전 있었던 장소로 돌아가는 기분이 들기도 합니다.",
-//        "향수는 Top / Middle / Base가 있습니다.",
-//        "그리고 각각의 Note에는 정해진 역할이 있죠",
-//        "당신이 앞에서 입력한 Beginning / Main / End는 \n 여기서 각각 향수의 Top / Middle / Base가 됩니다.",
-//        "그럼 당신의 추억 향수를 뿌리러 가볼까요?"
+        "Your emotions are being turned into perfume.",
+        "The Beginning, Main, and End \n that you previously selected  represent the \n Top/Middle/Base Notes of a fragrance.",
+        "Shall we spray the perfume that reflects your emotions?"
     ]
- 
 }
 
 

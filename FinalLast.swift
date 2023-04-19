@@ -1,4 +1,18 @@
 //
+//  FinalLast.swift
+//  WWDC2023
+//
+//  Created by GYURI PARK on 2023/04/20.
+//
+
+//
+//  FinalSecond.swift
+//  WWDC2023
+//
+//  Created by GYURI PARK on 2023/04/20.
+//
+
+//
 //  FinalView.swift
 //  WWDC2023
 //
@@ -7,14 +21,14 @@
 
 import SwiftUI
 
-struct FinalView: View {
+struct FinalLast: View {
     var body: some View {
         NavigationView {
             ZStack{
                 HStack{
                     Spacer()
                     
-                    Image("Top 1")
+                    Image("Base")
                     
                     Spacer()
                     
@@ -23,7 +37,7 @@ struct FinalView: View {
                         
                         VStack{
                             Spacer(minLength: 250)
-                            Text("Top Note")
+                            Text("Base Note")
                                 .fontWeight(.bold)
                                 .font(.system(size: 70))
                                 .foregroundColor(.white)
@@ -37,7 +51,7 @@ struct FinalView: View {
                                     ScrollView() {
                                         Spacer(minLength: 35)
                                         
-                                        Text("Top notes are the initial scents that you smell when you first apply the perfume.")
+                                        Text("Base notes are the final scents that linger after the perfume has fully dried down.")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -46,7 +60,7 @@ struct FinalView: View {
                                         
                                         Spacer(minLength: 55)
                                         
-                                        Text("They are typically light and fresh, and evaporate quickly.")
+                                        Text("They are typically rich and deep, and can last for several hours or even days.")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -55,7 +69,7 @@ struct FinalView: View {
                                         
                                         Spacer(minLength: 55)
                                         
-                                        Text("Some common top notes include citrus, bergamot, and lavender.")
+                                        Text("Common base notes include musk, vanilla, and sandalwood.")
                                             .fontWeight(.medium)
                                             .font(.system(size: 45))
                                             .frame(width: 460)
@@ -94,10 +108,8 @@ struct FinalView: View {
     }
 }
 
-
-
-struct FinalView_Previews: PreviewProvider {
+struct FinalLast_Previews: PreviewProvider {
     static var previews: some View {
-        FinalView().previewInterfaceOrientation(.landscapeLeft)
+        FinalLast().previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -9,24 +9,6 @@
 import SwiftUI
 import SpriteKit
 
-//struct SpreadView: View {
-//    @ObservedObject var dataModel = DataModel.instance
-//    var scene = MergeScene()
-//
-//    var body: some View {
-//
-//        ZStack{
-//
-//            SpriteView(scene: scene)
-//                .ignoresSafeArea()
-//                .onAppear {
-//                    scene.model = dataModel
-//                }
-//        }
-//    }
-//}
-
-
 struct SpreadView: View {
     @ObservedObject var dataModel = DataModel.instance
     var scene = MergeScene()
@@ -40,7 +22,7 @@ struct SpreadView: View {
                 .ignoresSafeArea()
                 .onAppear {
                     scene.model = dataModel
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 22) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
                         self.isFinalViewActive = true
                     }
                     let baseAnimation = Animation.easeInOut(duration: 1)
