@@ -103,6 +103,7 @@ struct FinalLast: View {
             }
             .buttonStyle(PlainButtonStyle())
             .offset(x: 0, y: 350)
+            .shadow(radius: 20)
             
         }.navigationViewStyle(StackNavigationViewStyle())
     }

@@ -16,7 +16,6 @@ import SwiftUI
 
 struct FinalSecond: View {
     var body: some View {
-        NavigationView {
             ZStack{
                 HStack{
                     Spacer()
@@ -76,28 +75,29 @@ struct FinalSecond: View {
                             
                             Spacer(minLength: 250)
                         }
+                        
+                        NavigationLink(
+                            destination: FinalLast())
+                        {
+                            Text("Next")
+                                .font(.system(size: 50).bold())
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 80)
+                                .padding(.vertical, 25)
+                                .background(Color.black)
+                                .cornerRadius(50)
+                                
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .offset(x: 0, y: 350)
+                        .padding(.top, 30)
+                        .shadow(radius: 20)
                     }
-
                     Spacer()
                     
                 }
+                
             }
-            NavigationLink(
-                destination: ColorChoice())
-            {
-                Text("Next")
-                    .font(.system(size: 50).bold())
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 80)
-                    .padding(.vertical, 25)
-                    .background(Color.black)
-                    .cornerRadius(50)
-                    .shadow(radius: 10)
-            }
-            .buttonStyle(PlainButtonStyle())
-            .offset(x: 0, y: 350)
-            
-        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

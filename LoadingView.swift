@@ -57,12 +57,13 @@ struct MyLoadingView: View {
                     .ignoresSafeArea()
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: Color(0x498C5A)))
-                    .scaleEffect(10)
+                    .scaleEffect(5)
+            
             }
             Spacer()
             
             Text(viewModel.loadingTexts[currentLoadingTextIndex])
-                .font(.system(size: 50))
+                .font(.system(size: 60))
                 .fontWeight(.bold)
                 .lineSpacing(30)
             Spacer(minLength: 200)
@@ -73,8 +74,8 @@ struct MyLoadingView: View {
     }
 
     func startFakeNetworkCall() {
-        let delay = Double(viewModel.loadingTexts[currentLoadingTextIndex].count) / 20
-        // 10단어당 1초
+        let delay = Double(viewModel.loadingTexts[currentLoadingTextIndex].count) / 25
+        // 25단어당 1초
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             if currentLoadingTextIndex < viewModel.loadingTexts.count - 1 {
                 currentLoadingTextIndex += 1
@@ -89,8 +90,8 @@ struct MyLoadingView: View {
 class LoadingViewModel: ObservableObject {
     let loadingTexts = [
         "Your emotions are being turned into perfume.",
-        "The Beginning, Main, and End \n that you previously selected  represent the \n Top/Middle/Base Notes of a fragrance.",
-        "Shall we spray the perfume that reflects your emotions?"
+        "The Beginning, Main, and End \n that you previously selected  represent the \n Top / Middle / Base Notes of a fragrance.",
+        "Shall we spray the perfume \n that reflects your emotions?"
     ]
 }
 

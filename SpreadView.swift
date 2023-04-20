@@ -18,6 +18,11 @@ struct SpreadView: View {
 
     var body: some View {
         ZStack {
+            
+            NavigationLink(destination: FinalView(), isActive: $isFinalViewActive) {
+                EmptyView()
+            }
+
             SpriteView(scene: scene)
                 .ignoresSafeArea()
                 .onAppear {
@@ -33,15 +38,16 @@ struct SpreadView: View {
                     }
                 }.transition(.opacity)
 
-            if isFinalViewActive {
-                withAnimation(.easeInOut(duration: 0.5)) {
-                    FinalView()
-                        .opacity(1.0)
-                }
-            } else {
-                FinalView()
-                    .opacity(0.0)
-            }
+//            if isFinalViewActive {
+//                withAnimation(.easeInOut(duration: 0.5)) {
+//                    FinalView()
+//                        .opacity(1.0)
+//                    
+//                }
+//            } else {
+//                FinalView()
+//                    .opacity(0.0)
+//            }
         }
     }
 }
