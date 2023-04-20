@@ -30,7 +30,7 @@ struct FinalView: View {
                                     
                                     Text("Top notes are the initial scents that you smell when you first apply the perfume.")
                                         .fontWeight(.medium)
-                                        .font(.system(size: 45))
+                                        .font(.system(size: 35))
                                         .frame(width: 460)
                                         .multilineTextAlignment(.center)
                                         .lineSpacing(10)
@@ -39,7 +39,7 @@ struct FinalView: View {
                                     
                                     Text("They are typically light and fresh, and evaporate quickly.")
                                         .fontWeight(.medium)
-                                        .font(.system(size: 45))
+                                        .font(.system(size: 35))
                                         .frame(width: 460)
                                         .multilineTextAlignment(.center)
                                         .lineSpacing(10)
@@ -48,7 +48,7 @@ struct FinalView: View {
                                     
                                     Text("Some common top notes include citrus, bergamot, and lavender.")
                                         .fontWeight(.medium)
-                                        .font(.system(size: 45))
+                                        .font(.system(size: 35))
                                         .frame(width: 460)
                                         .multilineTextAlignment(.center)
                                         .lineSpacing(10)

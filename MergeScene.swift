@@ -13,6 +13,7 @@ import GameKit
 class MergeScene: SKScene {
     var model = DataModel.instance
     var label: SKLabelNode?
+    var sen: SKLabelNode?
     
     let background = SKSpriteNode(imageNamed: "bg")
     
@@ -35,9 +36,16 @@ class MergeScene: SKScene {
             label?.fontColor = UIColor.black
             label?.fontName = "Helvetica-Bold"
             label?.fontSize = 60
-            label?.position = CGPoint(x: size.width / 2, y: size.height / 2)
+            label?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 5)
             label?.zPosition = 15
             addChild(label!)
+            sen = SKLabelNode(text: "Initial emotions felt during the memory")
+            sen?.fontColor = UIColor.gray
+            sen?.fontName = "Helvetica-Medium"
+            sen?.fontSize = 30
+            sen?.position = CGPoint(x: size.width / 2, y: size.height / 2 + 50)
+            sen?.zPosition = 15
+            addChild(sen!)
             
             // 10초 후 ball 생성
             for i in 1...10 {
@@ -68,7 +76,9 @@ class MergeScene: SKScene {
             let remove = SKAction.removeFromParent()
             let sequence = SKAction.sequence([fadeOut, remove])
             label?.run(sequence)
+            sen?.run(sequence)
             label = nil
+            sen = nil
             
             // 10초 후 ball 제거
             for child in self.children {
@@ -85,9 +95,16 @@ class MergeScene: SKScene {
             label?.fontColor = UIColor.black
             label?.fontName = "Helvetica-Bold"
             label?.fontSize = 60
-            label?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 60)
+            label?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 70)
             label?.zPosition = 15
             addChild(label!)
+            sen = SKLabelNode(text: "Essence of the experience")
+            sen?.fontColor = UIColor.gray
+            sen?.fontName = "Helvetica-Medium"
+            sen?.fontSize = 30
+            sen?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 110)
+            sen?.zPosition = 15
+            addChild(sen!)
             
             // 10초 후 ball 생성
             for i in 1...20 {
@@ -120,6 +137,8 @@ class MergeScene: SKScene {
             let sequence = SKAction.sequence([fadeOut, remove])
             label?.run(sequence)
             label = nil
+            sen?.run(sequence)
+            sen = nil
             
             // 10초 후 ball 제거
             for child in self.children {
@@ -137,9 +156,16 @@ class MergeScene: SKScene {
             label?.fontColor = UIColor.black
             label?.fontName = "Helvetica-Bold"
             label?.fontSize = 60
-            label?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 110)
+            label?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 170)
             label?.zPosition = 15
             addChild(label!)
+            sen = SKLabelNode(text: "Lasting emotions and impressions left behind")
+            sen?.fontColor = UIColor.gray
+            sen?.fontName = "Helvetica-Medium"
+            sen?.fontSize = 30
+            sen?.position = CGPoint(x: size.width / 2, y: size.height / 2 - 200)
+            sen?.zPosition = 15
+            addChild(sen!)
             
             // 10초 후 ball 생성
             for i in 1...15 {
@@ -172,6 +198,8 @@ class MergeScene: SKScene {
             let sequence = SKAction.sequence([fadeOut, remove])
             label?.run(sequence)
             label = nil
+            sen?.run(sequence)
+            sen = nil
             
             // 10초 후 ball 제거
             for child in self.children {

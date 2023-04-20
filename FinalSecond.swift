@@ -45,7 +45,7 @@ struct FinalSecond: View {
                                         
                                         Text("Middle notes, also known as heart notes, become noticeable once the top notes have evaporated.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)
@@ -54,16 +54,16 @@ struct FinalSecond: View {
                                         
                                         Text("They are the main body of the fragrance, and last longer than the top notes.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)
                                         
                                         Spacer(minLength: 55)
                                         
-                                        Text("Middle notes are usually floral or spicy, and can include scents like rose, jasmine, and cinnamon..")
+                                        Text("Middle notes are usually floral or spicy, and can include scents like rose, jasmine, and cinnamon.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)

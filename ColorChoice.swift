@@ -19,7 +19,6 @@ struct ColorChoice: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-//        NavigationView{
             ZStack{
                 NavigationLink(destination: ParticleChoice(selectedColor1: $selectedColor1, selectedColor2: $selectedColor2, selectedColor3: $selectedColor3), isActive: $shouldNavigate) {
                     EmptyView()
@@ -51,11 +50,6 @@ struct ColorChoice: View {
                                 .font(.system(size: 50))
                                 .frame(width: 400, height: 60)
                             
-//                            Text("Choose a color that represents the emotion you felt at the beginning of that memory.")
-//                                .font(.system(size: 20))
-//                                .fontWeight(.semibold)
-//                                .foregroundColor(Color(0xCECECE))
-//                                .frame(width: 400, height: 60)
                             
                             ZStack{
                                 Circle()
@@ -80,12 +74,6 @@ struct ColorChoice: View {
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
                                 .frame(width: 400, height: 60)
-                            
-//                            Text("             What color represents \n the main emotion of that memory?")
-//                                .font(.system(size: 20))
-//                                .fontWeight(.semibold)
-//                                .foregroundColor(Color(0xCECECE))
-//                                .frame(width: 400, height: 60)
                             
                             ZStack{
                                 Circle()
@@ -113,12 +101,6 @@ struct ColorChoice: View {
                                 .font(.system(size: 50))
                                 .frame(width: 400, height: 60)
                             
-//                            Text("         What color does that \n memory evoke for you now?")
-//                                .font(.system(size: 20))
-//                                .fontWeight(.semibold)
-//                                .foregroundColor(Color(0xCECECE))
-//                                .frame(width: 400, height: 60)
-                            
                             ZStack{
                                 Circle()
                                     .frame(width: 300, height: 300)
@@ -130,7 +112,6 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 3
-//                                        dataModel.colors.append("\(selectedColor3)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)

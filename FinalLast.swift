@@ -53,7 +53,7 @@ struct FinalLast: View {
                                         
                                         Text("Base notes are the final scents that linger after the perfume has fully dried down.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)
@@ -62,7 +62,7 @@ struct FinalLast: View {
                                         
                                         Text("They are typically rich and deep, and can last for several hours or even days.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)
@@ -71,7 +71,7 @@ struct FinalLast: View {
                                         
                                         Text("Common base notes include musk, vanilla, and sandalwood.")
                                             .fontWeight(.medium)
-                                            .font(.system(size: 45))
+                                            .font(.system(size: 35))
                                             .frame(width: 460)
                                             .multilineTextAlignment(.center)
                                             .lineSpacing(10)
