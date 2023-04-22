@@ -37,17 +37,6 @@ struct SpreadView: View {
                         opacity = 1.0
                     }
                 }.transition(.opacity)
-
-//            if isFinalViewActive {
-//                withAnimation(.easeInOut(duration: 0.5)) {
-//                    FinalView()
-//                        .opacity(1.0)
-//                    
-//                }
-//            } else {
-//                FinalView()
-//                    .opacity(0.0)
-//            }
         }
     }
 }

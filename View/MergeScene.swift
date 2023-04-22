@@ -5,7 +5,6 @@
 //  Created by GYURI PARK on 2023/04/19.
 //
 
-
 import Foundation
 import SpriteKit
 import GameKit
@@ -107,7 +106,7 @@ class MergeScene: SKScene {
             addChild(sen!)
             
             // 10초 후 ball 생성
-            for i in 1...20 {
+            for i in 1...30 {
                 let ball = SKShapeNode(circleOfRadius: 100)
                 let color = SKColor(model.colors[1]).withAlphaComponent(0.5)
                 
@@ -126,7 +125,7 @@ class MergeScene: SKScene {
                 
                 let dx = CGFloat(arc4random_uniform(20)) - 10
                 let dy = CGFloat(arc4random_uniform(20)) - 10
-                ball.physicsBody?.applyImpulse(CGVector(dx: dx*3, dy: dy*3))
+                ball.physicsBody?.applyImpulse(CGVector(dx: dx*2, dy: dy*2))
             }
         }
         
