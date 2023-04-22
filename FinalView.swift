@@ -15,63 +15,60 @@ struct FinalView: View {
             Spacer()
             
             VStack{
+                VStack{
+                    Text("Top Note")
+                        .fontWeight(.bold)
+                        .font(.system(size: 70))
+                        .foregroundColor(.white)
+                        .padding(.top, 25)
                     
                     VStack{
-                        
-                        Text("Top Note")
-                            .fontWeight(.bold)
-                            .font(.system(size: 70))
-                            .foregroundColor(.white)
-                            //.padding(.top, 5)
+                        ScrollView() {
+                            Spacer(minLength: 75)
                             
-                            VStack{
-                                ScrollView() {
-                                    Spacer(minLength: 75)
-                                    
-                                    Text("Top notes are the initial scents that you smell when you first apply the perfume.")
-                                        .fontWeight(.medium)
-                                        .font(.system(size: 35))
-                                        .frame(width: 460)
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(10)
-                                    
-                                    Spacer(minLength: 55)
-                                    
-                                    Text("They are typically light and fresh, and evaporate quickly.")
-                                        .fontWeight(.medium)
-                                        .font(.system(size: 35))
-                                        .frame(width: 460)
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(10)
-                                    
-                                    Spacer(minLength: 55)
-                                    
-                                    Text("Some common top notes include citrus, bergamot, and lavender.")
-                                        .fontWeight(.medium)
-                                        .font(.system(size: 35))
-                                        .frame(width: 460)
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(10)
-                                    
-                                    Spacer(minLength: 65)
-                                }
-                                .frame(height: 500)
-                            }
-                            .background {
-                                Rectangle().cornerRadius(30)
-                                    .frame(width: 500, height: 400)
-                                    .foregroundColor(.white)
-                            }
-
+                            Text("Top notes are the initial scents that you smell when you first apply the perfume.")
+                                .fontWeight(.medium)
+                                .font(.system(size: 35))
+                                .frame(width: 460)
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(10)
+                            
+                            Spacer(minLength: 55)
+                            
+                            Text("They are typically light and fresh, and evaporate quickly.")
+                                .fontWeight(.medium)
+                                .font(.system(size: 35))
+                                .frame(width: 460)
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(10)
+                            
+                            Spacer(minLength: 55)
+                            
+                            Text("Some common top notes include citrus, bergamot, and lavender.")
+                                .fontWeight(.medium)
+                                .font(.system(size: 35))
+                                .frame(width: 460)
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(10)
+                            
+                            Spacer(minLength: 65)
+                        }
+                        .frame(height: 500)
                     }
-                    .padding(.horizontal, 80)
-                    .padding(.vertical, 25)
                     .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.black)
-                            .frame(width: 600, height: 700)
+                        Rectangle().cornerRadius(30)
+                            .frame(width: 500, height: 400)
+                            .foregroundColor(.white)
                     }
-
+                    // Zstack으로 하니깐 Next버튼이 안눌러짐 -> Vstack으로 깔고 background 추가
+                }
+                .padding(.horizontal, 80)
+                .padding(.vertical, 25)
+                .background {
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.black)
+                        .frame(width: 600, height: 700)
+                }
                 NavigationLink {
                     FinalSecond()
                 } label: {

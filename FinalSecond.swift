@@ -16,88 +16,86 @@ import SwiftUI
 
 struct FinalSecond: View {
     var body: some View {
-            ZStack{
-                HStack{
-                    Spacer()
-                    
-                    Image("Middle")
-                    
-                    Spacer()
-                    
-                    ZStack{
-                        Rectangle().frame(width: 600, height: 700).cornerRadius(30)
-                        
-                        VStack{
-                            Spacer(minLength: 250)
-                            Text("Middle Note")
-                                .fontWeight(.bold)
-                                .font(.system(size: 70))
-                                .foregroundColor(.white)
-                            Spacer(minLength: 70)
+        HStack{
+            Spacer()
+            Image("Middle")
+            Spacer()
+            
+            VStack{
+                    VStack{
+                        Text("Middle Note")
+                            .fontWeight(.bold)
+                            .font(.system(size: 70))
+                            .foregroundColor(.white)
+                            .padding(.top, 25)
                             
-                            ZStack{
-                                Rectangle().frame(width: 500, height: 400).cornerRadius(30)
-                                    .foregroundColor(.white)
-                                
-                                VStack{
-                                    ScrollView() {
-                                        Spacer(minLength: 35)
-                                        
-                                        Text("Middle notes, also known as heart notes, become noticeable once the top notes have evaporated.")
-                                            .fontWeight(.medium)
-                                            .font(.system(size: 35))
-                                            .frame(width: 460)
-                                            .multilineTextAlignment(.center)
-                                            .lineSpacing(10)
-                                        
-                                        Spacer(minLength: 55)
-                                        
-                                        Text("They are the main body of the fragrance, and last longer than the top notes.")
-                                            .fontWeight(.medium)
-                                            .font(.system(size: 35))
-                                            .frame(width: 460)
-                                            .multilineTextAlignment(.center)
-                                            .lineSpacing(10)
-                                        
-                                        Spacer(minLength: 55)
-                                        
-                                        Text("Middle notes are usually floral or spicy, and can include scents like rose, jasmine, and cinnamon.")
-                                            .fontWeight(.medium)
-                                            .font(.system(size: 35))
-                                            .frame(width: 460)
-                                            .multilineTextAlignment(.center)
-                                            .lineSpacing(10)
-                                        
-                                        Spacer(minLength: 35)
-                                    }
+                            VStack{
+                                ScrollView() {
+                                    Spacer(minLength: 75)
+                                    
+                                    Text("Middle notes, also known as heart notes, become noticeable once the top notes have evaporated.")
+                                        .fontWeight(.medium)
+                                        .font(.system(size: 35))
+                                        .frame(width: 460)
+                                        .multilineTextAlignment(.center)
+                                        .lineSpacing(10)
+                                    
+                                    Spacer(minLength: 55)
+                                    
+                                    Text("They are the main body of the fragrance, and last longer than the top notes.")
+                                        .fontWeight(.medium)
+                                        .font(.system(size: 35))
+                                        .frame(width: 460)
+                                        .multilineTextAlignment(.center)
+                                        .lineSpacing(10)
+                                    
+                                    Spacer(minLength: 55)
+                                    
+                                    Text("Middle notes are usually floral or spicy, and can include scents like rose, jasmine, and cinnamon.")
+                                        .fontWeight(.medium)
+                                        .font(.system(size: 35))
+                                        .frame(width: 460)
+                                        .multilineTextAlignment(.center)
+                                        .lineSpacing(10)
+                                    
+                                    Spacer(minLength: 65)
                                 }
+                                .frame(height: 500)
                             }
-                            
-                            Spacer(minLength: 250)
-                        }
-                        
-                        NavigationLink(
-                            destination: FinalLast())
-                        {
-                            Text("Next")
-                                .font(.system(size: 50).bold())
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 80)
-                                .padding(.vertical, 25)
-                                .background(Color.black)
-                                .cornerRadius(50)
-                                
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        .offset(x: 0, y: 350)
-                        .padding(.top, 30)
-                        .shadow(radius: 20)
+                            .background {
+                                Rectangle().cornerRadius(30)
+                                    .frame(width: 500, height: 400)
+                                    .foregroundColor(.white)
+                            }
+
                     }
-                    Spacer()
-                    
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 25)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.black)
+                            .frame(width: 600, height: 700)
+                    }
+
+                NavigationLink {
+                    FinalLast()
+                } label: {
+                    Text("Next")
+                        .font(.system(size: 50).bold())
+                        .foregroundColor(.white)
+                        .foregroundColor(.black)
+                        .padding(.horizontal, 70)
+                        .padding(.vertical, 20)
+                        .background(Color.black)
+                        .shadow(radius: 10)
+                        .cornerRadius(50)
                 }
-                
+                .padding(.top, -30)
+                .shadow(radius: 20)
             }
+            
+            Spacer()
+        }
     }
 }
 
