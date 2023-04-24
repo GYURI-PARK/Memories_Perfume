@@ -144,3 +144,4 @@ struct ColorChoice_Previews: PreviewProvider {
         ColorChoice().previewInterfaceOrientation(.landscapeLeft)
     }
 }
+
