@@ -52,13 +52,8 @@ struct ParticleChoice: View {
                         Text("Beginnig")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                            .frame(width: 400, height: 60)
-                        
-//                        Text("Around the beginning of that memory, \n             Choose your mood color")
-//                            .font(.system(size: 20))
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color(0xCECECE))
-//                            .frame(width: 400, height: 60)
+                            .frame(maxWidth: .infinity)
+
                         
                         ZStack{
                             Circle()
@@ -92,13 +87,7 @@ struct ParticleChoice: View {
                         Text("Main")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                            .frame(width: 400, height: 60)
-                        
-//                        Text("      What color mood \n does the memory have?")
-//                            .font(.system(size: 20))
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color(0xCECECE))
-//                            .frame(width: 400, height: 60)
+                            .frame(maxWidth: .infinity)
                         
                         ZStack{
                             Circle()
@@ -133,13 +122,7 @@ struct ParticleChoice: View {
                         Text("End")
                             .fontWeight(.bold)
                             .font(.system(size: 50))
-                            .frame(width: 400, height: 60)
-                        
-//                        Text("      What color does \nthe memory leave you?")
-//                            .font(.system(size: 20))
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(Color(0xCECECE))
-//                            .frame(width: 400, height: 60)
+                            .frame(maxWidth: .infinity)
                         
                         ZStack{
                             Circle()
@@ -179,7 +162,7 @@ struct ParticleChoice: View {
                 Spacer()
                 Spacer()
                 
-            }
+            }.padding(.horizontal, 30)
         }
         .onDisappear {
             dataModel.emojiNum = [selectedImg1, selectedImg2, selectedImg3]

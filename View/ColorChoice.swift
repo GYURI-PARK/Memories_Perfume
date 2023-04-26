@@ -50,7 +50,9 @@ struct ColorChoice: View {
                             Text("Beginning")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                                .frame(width: 400, height: 60)
+                                //.frame(width: 400, height: 60)
+                                .frame(maxWidth: .infinity)
+                            // Comment: 다른 기기에서도 간격을 유지한 채로 보일려면 frame의 너비와 높이를 지정하는 것보다 다음과 같이 자동 정렬
                             
                             
                             ZStack{
@@ -75,7 +77,7 @@ struct ColorChoice: View {
                             Text("Main")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                                .frame(width: 400, height: 60)
+                                .frame(maxWidth: .infinity)
                             
                             ZStack{
                                 Circle()
@@ -88,7 +90,6 @@ struct ColorChoice: View {
                                     .onTapGesture {
                                         showSheet = true
                                         orderNum = 2
-//                                        dataModel.colors.append("\(selectedColor2)")
                                     }
                                     .sheet(isPresented: $showSheet) {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
@@ -101,7 +102,7 @@ struct ColorChoice: View {
                             Text("End")
                                 .fontWeight(.bold)
                                 .font(.system(size: 50))
-                                .frame(width: 400, height: 60)
+                                .frame(maxWidth: .infinity)
                             
                             ZStack{
                                 Circle()
@@ -131,7 +132,7 @@ struct ColorChoice: View {
                     Spacer()
                     Spacer()
                     
-                }
+                }.padding(.horizontal, 30)
             }
             .onDisappear {
                 dataModel.colors = [selectedColor1, selectedColor2, selectedColor3]
