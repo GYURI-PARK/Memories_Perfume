@@ -19,7 +19,7 @@ struct LoadingView: View {
                     isLoading = false
                 }
             }
-            if !isLoading {
+            else {
                 SpreadView()
                     .opacity(opacity)
                     .onAppear {
@@ -31,7 +31,7 @@ struct LoadingView: View {
                         }
                     }
                     .transition(.opacity)
-            }
+            } //Comment: 효율을 위해 if-else문 사용
         }
         .onAppear { startFakeNetworkCall() }
     }
