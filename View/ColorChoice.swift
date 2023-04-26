@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ColorChoice: View {
-    @State var dataModel = DataModel.instance
-    @State var showSheet = false
-    @State var selectedColor1 = Color.white
-    @State var selectedColor2 = Color.white
-    @State var selectedColor3 = Color.white
-    @State var orderNum = 0
+    
+    // Comment: 이 뷰에서만 쓰이는 변수라면 private 선언
+    @State private var dataModel = DataModel.instance
+    @State private var showSheet = false
+    @State private var selectedColor1 = Color.white
+    @State private var selectedColor2 = Color.white
+    @State private var selectedColor3 = Color.white
+    @State private var orderNum = 0
     @State private var shouldNavigate = false
     
     @Environment(\.presentationMode) var presentationMode
@@ -28,8 +30,8 @@ struct ColorChoice: View {
                     Spacer()
                     
                     Text("Select Mood Color")
-                        .font(.system(size: 100))
-                        .fontWeight(.heavy)
+                        .font(.system(size: 100, weight: .heavy))
+                    // Comment: font의 크기와 굵기는 한줄로 지정 가능
                         .padding(.vertical, 25)
                     
                     Spacer()
