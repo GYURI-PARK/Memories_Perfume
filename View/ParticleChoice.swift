@@ -150,9 +150,6 @@ struct ParticleChoice: View {
                                 .sheet(isPresented: $showSheet) {
                                     ImgModal(showSheet: self.$showSheet, selectedImg1: self.$selectedImg1, selectedImg2: self.$selectedImg2, selectedImg3: self.$selectedImg3, orderNum: self.$orderNum)
                                 }.onChange(of: selectedImg3) { img in
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                        presentationMode.wrappedValue.dismiss()
-                                    }
                                     self.showSheet = false
                                     self.shouldNavigate = true
                                 }

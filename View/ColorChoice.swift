@@ -120,17 +120,15 @@ struct ColorChoice: View {
                                         ColorModal(showSheet: self.$showSheet, selectedColor1: self.$selectedColor1, selectedColor2: self.$selectedColor2, selectedColor3: self.$selectedColor3, orderNum: self.$orderNum)
                                     }
                                     .onChange(of: selectedColor3) { color in
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                            presentationMode.wrappedValue.dismiss()
-                                        }
                                         self.showSheet = false
                                         self.shouldNavigate = true
                                     }
                             }
                         }
-                    }
+                    }.padding(.bottom, 20)
+                    
                     Spacer()
-                    Spacer()
+                    // Comment: Spacer()는 하나만 주고 위의 padding으로 간격 조정하기
                     
                 }.padding(.horizontal, 30)
             }
